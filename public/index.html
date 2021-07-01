@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+
+  <title>Дом</title>
+
+  <link href="images/home.png" rel="shortcut icon" type="image/png">
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+  <script defer src="javascripts/font-awesome-all.js"></script>
+</head>
+
+<body>
+
+<script>
+
+  let createCard = async () => {
+
+    let positionConfig = {};
+    await axios.get('position.json').then(res => {positionConfig = Object.assign(res.data)});
+
+    axios.get('data').then(res => {
+
+      let data = res.data;
+
+      for (let sensor in data) {
+
+        let simple_data = data[sensor][0];
+
+        let cardPosition = positionConfig.filter(elem => elem.name.indexOf(sensor))[0];
+        let cardStyle = 'top: ' + cardPosition.top + '%;';
+            cardStyle += 'left: ' + cardPosition.left + '%;';
+
+        let card = '<div id="' + sensor + '" class="card" style="position: absolute; ' + cardStyle + '">';
+
+        card += '<div class="card-header">';
+        card += '<div class="card-header-name">';
+        card += '<h3>' + cardPosition.desc + '</h3>';
+        card += '</div>'; // end card-header-name
+
+
+        card += '<div class="card-header-options">';
+
+          if (simple_data.battery === 100)
+            card += '<i class="fas fa fa-battery-full fa-rotate-270" title="' + simple_data.battery + '%"></i>';
+          if (simple_data.battery < 100 && simple_data.battery >= 70)
+            card += '<i class="fas fa fa-battery-three-quarters fa-rotate-270" title="' + simple_data.battery + '%"></i>';
+          if (simple_data.battery < 70 && simple_data.battery >= 50)
+            card += '<i class="fas fa fa-battery-half fa-rotate-270" title="' + simple_data.battery + '%"></i>';
+          if (simple_data.battery < 50 && simple_data.battery >= 30)
+            card += '<i class="fas fa fa-battery-quarter fa-rotate-270" title="' + simple_data.battery + '%"></i>';
+          if (simple_data.battery < 30 )
+            card += '<i class="fas fa fa-battery-empty fa-rotate-270" title="' + simple_data.battery + '%"></i>';
+
+
+          card += '&nbsp;<i class="fa fa-signal" title="' + simple_data.linkquality + '"></i>';
+        card += '</div>'; // end card-header-options
+        card += '</div>'; // end card-header
+
+
+        card += '<div class="card-body">';
+
+          card += '<p> Температура: ' + simple_data.temperature + ' °C</p>';
+          card += '<p> Влажность: ' + simple_data.humidity + ' %</p>';
+          card += '<p> Давление: ' + Math.round(simple_data.pressure / 133.3224 * 1000) + ' мм.рт.ст.</p>';
+          card += '<p> Обновлено: ' + new Date(parseInt(simple_data.last_seen, 10) * 1000).toLocaleString() + '</p>';
+        card += '</div>'; // end .card-body
+
+        card += '</div>'; //end .card
+
+        document.body.innerHTML += card;
+      }
+    });
+  };
+
+  createCard();
+  setInterval(() => {
+
+    document.body.innerHTML = '';
+    createCard();
+  }, 30 * 1000);
+
+
+</script>
+</body>
+
+</html>

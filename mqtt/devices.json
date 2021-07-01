@@ -1,0 +1,96 @@
+{
+    "0x00158D0006B88E67": [
+        {
+            "battery": 98,
+            "humidity": 63.36,
+            "last_seen": 1625143955,
+            "linkquality": 76,
+            "pressure": 98.51,
+            "temperature": 24.95,
+            "voltage": 2.99
+        },
+        {
+            "battery": 98,
+            "humidity": 63.25,
+            "last_seen": 1625143864,
+            "linkquality": 76,
+            "pressure": 98.52,
+            "temperature": 24.98,
+            "voltage": 2.99
+        },
+        {
+            "battery": 98,
+            "humidity": 60.13,
+            "last_seen": 1625142531,
+            "linkquality": 76,
+            "pressure": 98.5,
+            "temperature": 24.98,
+            "voltage": 2.99
+        },
+        {
+            "battery": 98,
+            "humidity": 61.3,
+            "last_seen": 1625140836,
+            "linkquality": 76,
+            "pressure": 98.47,
+            "temperature": 24.96,
+            "voltage": 2.99
+        },
+        {
+            "battery": 98,
+            "humidity": 62.49,
+            "last_seen": 1625137266,
+            "linkquality": 76,
+            "pressure": 98.47,
+            "temperature": 25.09,
+            "voltage": 2.99
+        }
+    ],
+    "0x00158D0006C6F20F": [
+        {
+            "battery": 100,
+            "humidity": 60.41,
+            "last_seen": 1625143370,
+            "linkquality": 89,
+            "pressure": 98.76,
+            "temperature": 25.42,
+            "voltage": 3.03
+        },
+        {
+            "battery": 100,
+            "humidity": 59.79,
+            "last_seen": 1625141352,
+            "linkquality": 89,
+            "pressure": 98.74,
+            "temperature": 25.48,
+            "voltage": 3.03
+        },
+        {
+            "battery": 100,
+            "humidity": 60.58,
+            "last_seen": 1625140128,
+            "linkquality": 89,
+            "pressure": 98.74,
+            "temperature": 25.55,
+            "voltage": 3.03
+        },
+        {
+            "battery": 100,
+            "humidity": 61.03,
+            "last_seen": 1625138322,
+            "linkquality": 94,
+            "pressure": 98.73,
+            "temperature": 25.51,
+            "voltage": 3.03
+        },
+        {
+            "battery": 100,
+            "humidity": 62.44,
+            "last_seen": 1625135302,
+            "linkquality": 89,
+            "pressure": 98.71,
+            "temperature": 25.79,
+            "voltage": 3.03
+        }
+    ]
+}

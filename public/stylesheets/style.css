@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  background-image: url(../images/scheme.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-position: center; */
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card {
+  border: 1px black solid;
+  width: 12%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body p {
+  margin: 0 0 5 5;
+}

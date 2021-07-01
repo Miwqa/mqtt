@@ -1,0 +1,10 @@
+{
+  "client": {
+    "host": "",
+    "port": 1883,
+    "username": "",
+    "password": ""
+  },
+  "topic": "zb_temperature",
+  "length": 10
+}
